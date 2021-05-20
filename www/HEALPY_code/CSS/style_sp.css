@@ -1,0 +1,24 @@
+.pc{
+  display: none;
+}
+.nav {
+  list-style: none;
+  overflow: hidden;
+  margin-left: 20%;
+}
+.sp{
+  position: fixed;
+  left: 0%;
+  bottom: 0%;
+  width: 100%;
+  background-color: rgb(208, 208, 252);
+}
+.sp li{
+  padding-left: 10%;
+  list-style: none;
+  text-align: center;
+  float: left;
+}
+.sp a{
+  color: white;
+}
