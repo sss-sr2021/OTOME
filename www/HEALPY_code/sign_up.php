@@ -5,7 +5,7 @@
 *Author : 豊島、畑本
 *Version : 0.0.1
 *Created : 2021.05.19
-*Update : 2021.05.20（畑本）※alert処理はまだ
+*Update : 2021.05.20（畑本）
 *
 */
 
@@ -39,7 +39,11 @@ if (isset($_POST['submit'])){
         'weight' => (float)$weight,
         'target_weight' => (float)$target_weight
     ]);
-    echo '登録されました';
+    ?>
+    <script>alert('登録しました');
+    location.href="index.php";
+    </script>
+    <?php
 }
 ?>
 <?php include_once('header.php')?>
@@ -62,6 +66,6 @@ if (isset($_POST['submit'])){
     <!-- フッター -->
     <?php include_once('footer.php')?>
 
-<script>
+<scrip>
     document.getElementById('title').innerHTML="新規登録";
-</script>
+</scrip>
