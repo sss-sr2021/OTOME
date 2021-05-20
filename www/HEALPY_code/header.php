@@ -25,7 +25,7 @@ Update：2021.05.20
             <li><a href="check_top.php">健康チェック</a></li>
             <li><a href="recipe_top.php">レシピ</a></li>
             <li><a href="mypage_top.php">マイページ</a></li>
-            <li><img src="img/logout.png" width="45px" title="ログアウト"></li>
+            <li><a href="logout.php"></a><img src="img/logout.png" width="45px" title="ログアウト"></li>
         </ul>
         </nav>
     </header>
