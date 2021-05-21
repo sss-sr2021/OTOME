@@ -11,7 +11,10 @@ Update：2021.05.20
     <!-- メインコンテンツ -->
     <main>
         <h3>健康チェック結果</h3>
-        中身
+
+        <p>今日のポイント<span id ="box"><?=$_POST['point'] ?></span></p>
+        <p>今日の消費カロリー<span id ="box"><?=$_POST['kcal'] ?></span></p>
+
     </main>
  
     <!-- フッター -->
