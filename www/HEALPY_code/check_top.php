@@ -1,3 +1,10 @@
+<!-- 
+check_top.php：健康チェック画面
+Autor：豊島
+Virsion：0.0.1
+Crated：2021.05.19
+Update：2021.05.21 
+-->
 <?php include_once('header.php')?>
  
     <!-- メインコンテンツ -->

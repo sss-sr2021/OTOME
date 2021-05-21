@@ -1,3 +1,11 @@
+<!-- 
+logion_top.php：ログイン前トップ
+Autor：豊島
+Virsion：0.0.1
+Crated：2021.05.19
+Update：2021.05.20
+ -->
+
 <?php include_once('header.php')?>
  
     <!-- メインコンテンツ -->

@@ -1,4 +1,12 @@
-    <footer class="pc">
+<!-- 
+footer.php：フッター
+Autor：豊島
+Virsion：0.0.1
+Crated：2021.05.19
+Update：2021.05.20 
+-->    
+    
+<footer class="pc">
         <nav class="nav">
                 <ul id=footer_nav>
                 <li><a href="policy.php">プライバシーポリシー</a></li>
