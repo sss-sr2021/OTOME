@@ -8,7 +8,7 @@ $dbh = dbInit();
     <!-- メインコンテンツ -->
     <main>
         <h3>ユーザ登録情報</h3>
-        <form action="" method="post">
+        <form action="" method="post" class="userInf">
         名前：<input type="text" name ="name" value="<?= $_SESSION['name']?>" readonly><br/>
         メールアドレス：<input type="email" name ="mail" value="<?= $_SESSION['email']?>" readonly><br/>
         パスワード：<input type="password" maxlength='16' pattern="^[0-9A-Za-z]{8,16}$" name ="password" value="<?= $_SESSION['password']?>" readonly><br/>
