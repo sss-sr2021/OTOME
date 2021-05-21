@@ -4,10 +4,21 @@
 	padding: 0;
 }
 
-body{
+body main{
+    width: 70%;
     margin: auto;
+
+}
+h3{
+    text-align: center;
 }
 
-.question2{
+.question{
     display: none;
+}
+.question:first-of-type {
+    display: block;
+}
+#box{
+    border: solid 1px darkgray;
 }
