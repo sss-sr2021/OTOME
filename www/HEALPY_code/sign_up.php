@@ -66,6 +66,6 @@ if (isset($_POST['submit'])){
     <!-- フッター -->
     <?php include_once('footer.php')?>
 
-<scrip>
+<script>
     document.getElementById('title').innerHTML="新規登録";
-</scrip>
+</script>
