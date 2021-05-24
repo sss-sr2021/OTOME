@@ -113,6 +113,13 @@ global $dbh;
                 $rows = $sth -> fetchAll(); //$sthの要素を取得
             }
             $res = [];
+            // 一週間分の空を作る
+            for($i=6;$i>=0;$i--){
+                $aDate = mktime(0,0,0,date('m'),date('j')-$i,date('Y'));
+                $aStrDate = date('Y-m-d',$aDate);
+                $res[$aStrDate] = '';
+            }
+            
             foreach($rows as $key => $value){
                 $date = $value['rg_date'];
                 $point = $value['point'];
