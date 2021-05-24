@@ -7,14 +7,20 @@ Update：2021.05.20
 -->
 
 <?php include_once('header.php')?>
+
+<?php 
+session_start();
+require_once 'function.php';
+setPoint($_SESSION['id'] ,$_POST['point']);
+?>
  
     <!-- メインコンテンツ -->
-    <main>
+    <main  class="contents">
         <h3>健康チェック結果</h3>
-
-        <p>今日のポイント<span id ="box"><?=$_POST['point'] ?></span></p>
-        <p>今日の消費カロリー<span id ="box"><?=$_POST['kcal'] ?></span></p>
-
+        <div class="sub_contents">
+            <p>今日のポイント<span id ="box"><?=$_POST['point'] ?></span></p>
+            <p>今日の消費カロリー<span id ="box"><?=$_POST['kcal'] ?></span>Kcal</p>
+        </div>
     </main>
  
     <!-- フッター -->

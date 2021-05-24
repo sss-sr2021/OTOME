@@ -18,7 +18,7 @@ $points = getPoint(['user_id' => $_SESSION['id']]);
 
  
 <!-- メインコンテンツ -->
-<main>
+<main  class="contents">
     <h3 id="date">日付</h3>
     <p>今日のポイント</p>
     <p>（ここにポイント数）</p>

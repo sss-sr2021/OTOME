@@ -7,6 +7,9 @@ header{
 }
 footer{
   background-color: rgb(208, 208, 252);
+  position: absolute;/*←絶対位置*/
+  bottom: 0; /*下に固定*/
+  width: 100%;
 }
 .nav {
     list-style: none;
@@ -44,4 +47,7 @@ footer{
   color:white;/*文字を白に*/
   padding:5px 10px;/*内側の余白*/
   border-radius: 20px;/*角を丸くする*/
+}
+.button{
+  margin: 50px;
 }

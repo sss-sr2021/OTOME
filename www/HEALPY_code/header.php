@@ -41,7 +41,7 @@ Update：2021.05.20
             <li><a href="check_top.php">健康チェック</a></li>
             <li><a href="recipe_top.php">レシピ</a></li>
             <li><a href="mypage_top.php">マイページ</a></li>
-            <li><a href="logout.php"></a><img src="img/logout.png" width="45px" title="ログアウト"></li>
+            <li><a href="logout.php"><img src="img/logout.png" width="45px" title="ログアウト"></a></li>
         </ul>
         </nav>
     </header>
@@ -50,10 +50,10 @@ Update：2021.05.20
         <!-- <h1><a href="index.php">HEALPY</a></h1> -->
         <nav class="nav">
             <ul>
-            <li><a href="index.php">TOP</a></li>
-            <li><a href="check_top.php">健康チェック</a></li>
-            <li><a href="recipe_top.php">レシピ</a></li>
-            <li><a href="mypage_top.php">マイページ</a></li>
+            <li><a href="index.php"><img src="img/top.png" width="35px"><br />TOP</a></li>
+            <li><a href="check_top.php"><img src="img/check.png" width="35px"><br />健康チェック</a></li>
+            <li><a href="recipe_top.php"><img src="img/recipe.png" width="35px"><br />レシピ</a></li>
+            <li><a href="mypage_top.php"><img src="img/mypage.png" width="35px"><br />マイページ</a></li>
         </ul>
         </nav>
     </header>
