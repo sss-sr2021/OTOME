@@ -8,6 +8,13 @@ Update：2021.05.20
 
 
  <?php include_once('header.php')?>
+ <?php 
+session_start();
+require_once 'function.php';
+$points = getPoint(['user_id' => $_SESSION['id']]);
+//  var_dump($points);
+//  var_dump($_SESSION['getPoint'][0]['rg_date']);
+?>
 
  
 <!-- メインコンテンツ -->
@@ -25,6 +32,8 @@ Update：2021.05.20
 
 <!-- フッター -->
 <?php include_once('footer.php')?>
+
+
 <script>
 document.getElementById('title').innerHTML="HEALPYトップ";
 var today = new Date();
@@ -36,6 +45,7 @@ var dayOfWeek = today.getDay() ;	// 曜日(数値)
 var dayOfWeekStr = [ "日", "月", "火", "水", "木", "金", "土" ][dayOfWeek] ;	// 曜日(日本語表記) 
 
 var date = document.getElementById("date");
+$nowtoday = year+"年"+month+"月"+day+"日"+"("+dayOfWeekStr+")";
 date.innerHTML=year+"年"+month+"月"+day+"日"+"("+dayOfWeekStr+")";
 
 // ここからグラフ作成
@@ -45,11 +55,11 @@ var myLineChart = new Chart(ctx, {
     type: 'line',   // グラフの種類　line: 折れ線グラフ
     // データ
     data: {         //  データ
-        labels: ['1月1日', '1月2日', '1月3日', '1月4日', '1月5日', '1月6日', '1月7日'], // x軸のラベルの値
+        labels: ['<?=implode("','",array_keys($points))?>'], // x軸のラベルの値
         datasets: [     // データセット（配列)
             {
                 label: 'ポイント',                  // 線のラベル
-                data: [7,10,8,5,11,5,8],            //　値
+                data: ['<?=implode("','",array_values($points))?>'],            //　値
                 borderColor: "rgba(0,0,255,1)",     // 線の色
                 backgroundColor: "rgba(0,0,0,0)",   // 線の背景色
                 lineTension: 0,                     // なめらかな曲線をoff
@@ -83,9 +93,9 @@ var myLineChart = new Chart(ctx, {
 <style type="text/css">
 /* グラフの設定 */
 #myChart {
-width: 60% !important;      /* グラフの幅   */
-height: 40vh !important;    /* グラフの高さ */
-margin: 1em auto;           /* マージン     */
+    width: 60% !important;      /* グラフの幅   */
+    height: 40vh !important;    /* グラフの高さ */
+    margin: 1em auto;           /* マージン     */
 }
 </style>
 </html>

@@ -12,6 +12,7 @@
 /*
 * データベースの情報
 */
+
 define('DB', 'pgsql');
 define('DB_HOST', 'localhost');
 define('DB_PORT', 5432 );
@@ -73,4 +74,52 @@ global $dbh;
     */
     function logOut(){
         unset($_SESSION['logined']);
+    }
+
+
+    /***
+    * 関数 : ポイントの登録(pointテーブル)
+    * $userid : $_SESSION['id']
+    * $point : $_POST['point']
+    */
+    function setPoint($userid,$point){
+        $dbh = dbInit();
+        $sth = $dbh->prepare(
+            "INSERT INTO point(user_id,point,rg_date) VALUES (:user_id,:point,:rg_date)"
+        );
+        $ret = $sth->execute([
+            'user_id' =>  $userid ,
+            'point' => $point,
+            'rg_date' => date('Y-m-d')
+        ]);
+    }
+
+     /***
+    * 関数 : ポイントの取得(pointテーブル) index.phpで使用
+    * $_SESSION['id']で検索
+    * $where array : 検索条件の配列
+    */
+    function getPoint($where=[]){
+        $dbh = dbInit();
+        // if(!isset($_SESSION['point'])){
+            foreach($where as $key => $value){
+                $sth = $dbh->prepare(
+                    "SELECT * FROM point WHERE $key  =  :$key" //データベースを検索
+                );
+                $exc = $sth -> execute([
+                    $key => $value
+                ]);
+            
+                $rows = $sth -> fetchAll(); //$sthの要素を取得
+            }
+            $res = [];
+            foreach($rows as $key => $value){
+                $date = $value['rg_date'];
+                $point = $value['point'];
+                $res[$date]=$point;
+            }
+            // var_dump($rows);
+            
+            return $res;
+        // }
     }
