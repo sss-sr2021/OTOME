@@ -1,4 +1,6 @@
-
+/* html,body{
+    overflow: none;
+} */
 *{
 	margin: 0;
 	padding: 0;
@@ -11,6 +13,7 @@ body main{
 } */
 h3{
     text-align: center;
+    margin-bottom: 50px;
 }
 
 .question{
@@ -31,7 +34,12 @@ h3{
     width: 70%;
     margin: auto;
     margin-top:50px;
+    /* overflow: scroll; */
   }
 /* .sub_contents{
     margin: auto;
   } */
+/* #admin_table{
+    margin: auto;
+    width: 60%;
+} */
