@@ -8,7 +8,7 @@
 *Update : 2021.05.20（畑本）
 *
 */
-
+session_start();
 require_once 'function.php';
 
 /*
@@ -17,7 +17,7 @@ require_once 'function.php';
 $dbh = dbInit();
 
 /*
-* ユーザー情報の追加
+* ユーザー情報の登録
 */
 if (isset($_POST['submit'])){
     $hash = password_hash($_POST['password'],PASSWORD_DEFAULT);
@@ -40,8 +40,9 @@ if (isset($_POST['submit'])){
         'target_weight' => (float)$target_weight
     ]);
     ?>
-    <script>alert('登録しました');
-    location.href="index.php";
+    <script>
+        alert('登録しました');
+        location.href="login.php";
     </script>
     <?php
 }
