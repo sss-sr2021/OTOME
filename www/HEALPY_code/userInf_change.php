@@ -37,13 +37,15 @@ if (isset($_POST['submit'])){
             $_SESSION[$key] = $val;
         }
     }
+    header('Location: userInf.php');
 }
+
 ?>
 <?php include_once('header.php')?>
     <!-- メインコンテンツ -->
     <main>
         <h3>ページタイトル</h3>
-        <form action="" method="post">
+        <form action="" method="post" id="change_form">
         名前：<input type="text" name ="name" value="<?= $_SESSION['name']?>" required><br/>
         メールアドレス：<input type="email" name ="mail" value="<?= $_SESSION['email']?>" required><br/>
         新規パスワード：<input type="password" maxlength='16' pattern="^[0-9A-Za-z]{8,16}$" name ="password" value="" required><br/>
@@ -52,7 +54,7 @@ if (isset($_POST['submit'])){
         身長：<input type="number"  step="0.1" name ="height" value="<?= $_SESSION['height']?>"><br/>  <!-- numberだけど値の型はstring-->
         体重：<input type="number" name ="weight" value="<?= $_SESSION['weight']?>"><br/>
         目標体重：<input type="number" name ="target_weight" value="<?= $_SESSION['target_weight']?>"><br/>
-        <input type="submit" name ="submit" value="変更する" onclick=userInf_change() >
+        <input type="submit" name ="submit" value="変更する" onclick="return userInf_change()" >
         </form>
     </main>
     <!-- フッター -->
@@ -61,13 +63,17 @@ if (isset($_POST['submit'])){
 <script>
     document.getElementById('title').innerHTML="登録情報変更";
     function userInf_change(){
-        <?php if ($password1 == $con_password){ ?>
+        var new_pass = document.getElementsByName('password')[0];
+        var con_pass = document.getElementsByName('con_password')[0];
+        var form = document.getElementById('change_form');
+        if (new_pass.value == con_pass.value){
             alert("変更しました");
-            location.href = 'userInf.php';
-        <?php }
-        else{ ?>
+        }
+        else{
             alert("パスワードが間違っています");
-        location.href = 'userInf_change.php';
-        <?php } ?>
+            new_pass.value = '';
+            con_pass.value = '';
+            return false;
+        }
     }
 </script>
