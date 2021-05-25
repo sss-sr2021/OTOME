@@ -8,12 +8,14 @@ Update：2021.05.21
  <?php include_once('header.php')?>
 
  <main  class="contents">
+ <h3>運営会社</h3>
+    <div class="sub_contents">
             <dl class="overview">
                 <dt class="	corporate-name">
                     団体名
                 </dt>
                 <dd class="	corporate-name">
-                    ***運営団体***
+                    株式会社システムリサーチ チーム乙女
                 </dd>
                 <dt class="representative">
                     代表者
@@ -46,10 +48,12 @@ Update：2021.05.21
                     0000-00-0000　(代表)
                 </dd>
             </dl>
-        </main>
-<!-- フッター -->
-<?php include_once('footer.php')?>
+        </div>
+    </main>
 
 <script>
     document.getElementById('title').innerHTML="運営会社";
 </script>
+
+<!-- フッター -->
+<?php include_once('footer.php')?>

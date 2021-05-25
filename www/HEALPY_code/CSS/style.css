@@ -1,17 +1,15 @@
-/* html,body{
-    overflow: none;
-} */
 *{
 	margin: 0;
 	padding: 0;
     font-family: 'M PLUS Rounded 1c', sans-serif;
 }
-/* 
-body main{
-    width: 70%;
-    margin: auto;
+h1 a{
+    text-decoration: none;
+    color: white;
+    margin-left: 30px;
+}
 
-} */
+
 h3{
     text-align: center;
     margin-bottom: 50px;
@@ -35,12 +33,17 @@ h3{
     width: 70%;
     margin: auto;
     margin-top:50px;
+    margin-bottom: 20%;
 }
 .contents p{
     margin-bottom: 20px;
 }
+.contents h2{
+    margin-bottom: 30px;
+}
   #link_button{
     padding: 10px;
+    margin-right: 30px;
     text-decoration: none;
     font-weight: bold;/*太字に*/
     background: skyblue;/*背景を水色に*/
@@ -62,16 +65,10 @@ h3{
     padding:5px 10px;/*内側の余白*/
     border-radius: 20px;/*角を丸くする*/
 }
-
-/* .sub_contents{
-    width: 300px;
-    margin:auto ;
-    margin-bottom: 30px;
-  } */
-  .sub_contents{
+.sub_contents{
    text-align: center;
    margin-bottom: 40px;
-  }
+}
 #admin_table{
     margin: auto;
     margin-bottom: 20%;
@@ -80,4 +77,21 @@ h3{
 .form_contents{
     width: 300px;
     margin: auto;
+}
+
+#recipe_img{
+    display: block;
+    width:70%;
+    margin:auto;
+    margin-bottom:20%;
+    margin-top:30px;
+}
+.button{
+    text-align: center;
+}
+.login_button{
+    margin-top: 50px;
+}
+.login_button #link_button{
+    font-size: 25px;
 }

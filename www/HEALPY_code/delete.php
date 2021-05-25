@@ -7,6 +7,13 @@ if(isset($_POST['submit'])){
         'DELETE FROM users WHERE id = :id'
     );
     $ret = $sth->execute(['id' => $_POST['id']]);
+
+    $sth = $dbh->prepare(
+        'DELETE FROM point WHERE user_id = :user_id'
+    );
+    $ret = $sth->execute(['user_id' => $_POST['id']]);
+
+
 }
 header('Location:admin.php');
 

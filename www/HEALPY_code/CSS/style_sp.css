@@ -12,6 +12,7 @@ body main{
   width: 90%;
   margin: auto;
   margin-top:50px;
+  margin-bottom: 20%;
 }
 /* .sp.nav {
   list-style: none;
@@ -45,4 +46,7 @@ header.sp a{
   margin: auto;
   margin-bottom: 20%;
   width: 80%;
+}
+dd{
+  padding-bottom: 20px;
 }

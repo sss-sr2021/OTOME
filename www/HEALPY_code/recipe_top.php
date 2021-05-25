@@ -20,6 +20,7 @@ if (empty($_SESSION['target_weight'])){
     $ret = $sth->execute();
     $rows = $sth->fetchAll();  //$rowsの中に配列として「standardレシピ」入ってる
     $recipe = array_rand($rows, 1);
+    $a='';
 }
 else{
     // 目標体重の登録有：recipe_type=2 healthy
@@ -28,17 +29,19 @@ else{
     $ret = $sth->execute();
     $rows = $sth->fetchAll();
     $recipe = array_rand($rows, 1);
+    $a='ヘルシー';
 }
-
 ?>
 
 <?php include_once('header.php')?>
 
 <!-- メインコンテンツ -->
-<main>
+<main class="contents">
     <h3>レシピ</h3>
-    おすすめレシピをご紹介
-    <img src="recipe/<?= $rows[$recipe][0] ?>" width="60%" />
+    <div class="form_contents">
+    <p>おすすめ<?php echo $a ?>レシピをご紹介</p>
+    </div>
+    <img id="recipe_img" src="recipe/<?= $rows[$recipe][0] ?>"/>
 </main>
 
 <script>
