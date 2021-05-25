@@ -1,3 +1,6 @@
+/* html,body{
+  margin: 0;
+} */
 body main{
   margin-top: 50px;
 }
@@ -5,12 +8,11 @@ body main{
 .pc{
   display: none;
 }
-.sp.nav {
-width: 100%;
+/* .sp.nav {
   list-style: none;
   overflow: hidden;
   margin-left: 20%;
-}
+} */
 header.sp{
   height: 80px;
   position: fixed;
@@ -34,3 +36,7 @@ header.sp a{
 .page_title{
  margin-bottom: 10%;
 }
+/* #admin_table{
+  margin: auto;
+  width: 60vw;
+} */
