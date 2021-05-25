@@ -47,15 +47,15 @@ if (isset($_POST['submit'])){
         <h3>登録情報変更</h3>
         <div class="form_contents">
         <form action="" method="post" id="change_form">
-        名前：<input type="text" name ="name" value="<?= $_SESSION['name']?>" required><br/>
-        メールアドレス：<input type="email" name ="mail" value="<?= $_SESSION['email']?>" required><br/>
-        新規パスワード：<input type="password" maxlength='16' pattern="^[0-9A-Za-z]{8,16}$" name ="password" value="" required><br/>
-        確認パスワード：<input type="password" maxlength='16' pattern="^[0-9A-Za-z]{8,16}$" name ="con_password" value="" required><br/>
-        生年月日：<input type="date" name ="birthday" value="<?= $_SESSION['birthday']?>" required><br/>
-        身長：<input type="number"  step="0.1" name ="height" value="<?= $_SESSION['height']?>"><br/>  <!-- numberだけど値の型はstring-->
-        体重：<input type="number" name ="weight" value="<?= $_SESSION['weight']?>"><br/>
-        目標体重：<input type="number" name ="target_weight" value="<?= $_SESSION['target_weight']?>"><br/>
-        <input type="submit" name ="submit" value="変更する" onclick="return userInf_change()" >
+        <p>名前：<input type="text" name ="name" value="<?= $_SESSION['name']?>" required><br/></p>
+        <p>メールアドレス：<input type="email" name ="mail" value="<?= $_SESSION['email']?>" required><br/></p>
+        <p>新規パスワード：<input type="password" maxlength='16' pattern="^[0-9A-Za-z]{8,16}$" name ="password" value="" required><br/></p>
+        <p>確認パスワード：<input type="password" maxlength='16' pattern="^[0-9A-Za-z]{8,16}$" name ="con_password" value="" required><br/></p>
+        <p>生年月日：<input type="date" name ="birthday" value="<?= $_SESSION['birthday']?>" required><br/></p>
+        <p>身長：<input type="number"  step="0.1" name ="height" value="<?= $_SESSION['height']?>"><br/></p>  <!-- numberだけど値の型はstring-->
+        <p>体重：<input type="number" name ="weight" value="<?= $_SESSION['weight']?>"><br/></p>
+        <p>目標体重：<input type="number" name ="target_weight" value="<?= $_SESSION['target_weight']?>"><br/></p>
+        <input id="link_button" type="submit" name ="submit" value="変更する" onclick="return userInf_change()" >
         </form>
         </div>
     </main>
