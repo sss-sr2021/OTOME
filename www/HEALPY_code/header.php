@@ -49,7 +49,7 @@ require_once 'function.php';
             <li><a href="check_top.php">健康チェック</a></li>
             <li><a href="recipe_top.php">レシピ</a></li>
             <li><a href="mypage_top.php">マイページ</a></li>
-            <?php if($_SESSION['name'] =='管理者' || $_SESSION['email'] =='kannri@otome.jp'){?>
+            <?php if(@$_SESSION['logined']['name'] =='管理者' && @$_SESSION['logined']['email'] =='kannri@otome.jp'){?>
             <li><a href="admin.php">管理者ページ</a></li>
             <?php }?>
             <li><a href="logout.php"><img src="img/logout.png" width="45px" title="ログアウト"></a></li>
