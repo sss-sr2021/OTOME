@@ -8,6 +8,11 @@ body main{
 .pc{
   display: none;
 }
+.contents{
+  width: 90%;
+  margin: auto;
+  margin-top:50px;
+}
 /* .sp.nav {
   list-style: none;
   overflow: hidden;
@@ -36,7 +41,8 @@ header.sp a{
 .page_title{
  margin-bottom: 10%;
 }
-/* #admin_table{
+#admin_table{
   margin: auto;
-  width: 60vw;
-} */
+  margin-bottom: 20%;
+  width: 80%;
+}

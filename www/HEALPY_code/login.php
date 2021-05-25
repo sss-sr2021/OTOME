@@ -17,6 +17,7 @@ if (isset($_POST['submit'])){
     $logined = getLoginUser(['email'=>$email]);
 
     if (password_verify($pass,$logined['password'])){
+
         $_SESSION['name'] = $logined['name'];
         $_SESSION['email'] = $logined['email'];
         $_SESSION['password'] = $logined['password'];
@@ -26,6 +27,10 @@ if (isset($_POST['submit'])){
         $_SESSION['target_weight'] = $logined['target_weight'];
         $_SESSION['id'] = $logined['id'];
         header('Location:index.php');
+
+        if($_SESSION['name'] =='管理者' || $_SESSION['email'] =='kannri@otome.jp'){ //管理者がログインしたら
+            header('Location:admin.php');
+        }
     }
     else{
         echo 'パスワードが間違っています';
@@ -38,7 +43,7 @@ if (isset($_POST['submit'])){
 <?php include_once('header.php')?>
  
     <!-- メインコンテンツ -->
-    <main>
+    <main  class="contents">
         <h3>ログイン</h3>
         <form action="" method="post">
         メールアドレス：<input type="email" name ="mail" value="" required><br/>
@@ -47,9 +52,10 @@ if (isset($_POST['submit'])){
         </form>
     </main>
  
-    <!-- フッター -->
-    <?php include_once('footer.php')?>
 
 <script>
     document.getElementById('title').innerHTML="ログイン";
 </script>
+
+<!-- フッター -->
+<?php include_once('footer.php')?>

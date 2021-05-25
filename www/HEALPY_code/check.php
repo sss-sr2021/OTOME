@@ -13,8 +13,9 @@ Update：2021.05.20
     }
 ?> 
     <!-- メインコンテンツ -->
-    <main>
+    <main  class="contents">
         <h3>健康チェック</h3>
+        <div class="sub_contents">
         <div class="check">
             <div class="question">
                 <p>Q1<br />
@@ -35,7 +36,7 @@ Update：2021.05.20
                 <p>Q3<br />
                     間食はどのようなものを食べましたか&quest;
                 </p>
-                <a id="qbtn" data-value="-2" href ="javascript:return false;">クッキーやスナック菓子などの<br />高エネルギーなもの</a>
+                <a id="qbtn" data-value="-2" href ="javascript:return false;">クッキーやスナック菓子などの高エネルギーなもの</a>
                 <a id="qbtn" data-value="-1" href ="javascript:return false;">ヨーグルトなどのカルシウムを含むもの</a>
                 <a id="qbtn" data-value="0" href ="javascript:return false;">果物などのビタミンを含むもの</a>
                 <a id="qbtn" data-value="1" href ="javascript:return false;">食べていない</a>
@@ -73,6 +74,7 @@ Update：2021.05.20
                 <input type="submit" name="check_point" value="結果">
             </form>
             </div>
+        </div>
         </div>
     </main>
 

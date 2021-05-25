@@ -9,10 +9,10 @@ Update：2021.05.20
 
  <?php include_once('header.php')?>
  <?php 
-session_start();
+@session_start();
 require_once 'function.php';
 $points = getPoint(['user_id' => $_SESSION['id']]);
-//  var_dump($points);
+//   var_dump($_SESSION['name']);
 //  var_dump($_SESSION['getPoint'][0]['rg_date']);
 ?>
 
@@ -20,9 +20,12 @@ $points = getPoint(['user_id' => $_SESSION['id']]);
 <!-- メインコンテンツ -->
 <main  class="contents">
     <h3 id="date">日付</h3>
-    <p>今日のポイント</p>
-    <p>（ここにポイント数）</p>
-    <p>この調子でポイントアップを目指しましょう！</p>
+    <div class="sub_contents">
+        <!-- <p>今日のポイント</p> -->
+        <p><?=@$_SESSION['getPoint'][0]['point']?></p>
+        <p><?=$_SESSION['name']?>さんの過去データ</p>
+        <p>この調子でポイントアップを目指しましょう！</p>
+    </div>
     <!-- ↓以下グラフを表示↓ -->
     <!-- グラフ作成ライブラリ -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
@@ -93,7 +96,7 @@ var myLineChart = new Chart(ctx, {
 <style type="text/css">
 /* グラフの設定 */
 #myChart {
-    width: 60% !important;      /* グラフの幅   */
+    width: 70% !important;      /* グラフの幅   */
     height: 40vh !important;    /* グラフの高さ */
     margin: 1em auto;           /* マージン     */
 }

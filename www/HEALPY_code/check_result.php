@@ -9,7 +9,7 @@ Update：2021.05.20
 <?php include_once('header.php')?>
 
 <?php 
-session_start();
+@session_start();
 require_once 'function.php';
 setPoint($_SESSION['id'] ,$_POST['point']);
 ?>

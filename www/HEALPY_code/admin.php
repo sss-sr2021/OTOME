@@ -36,7 +36,7 @@ $rows =$sth->fetchAll(PDO::FETCH_ASSOC);
                 <th scope="col">ID</th>
                 <th scope="col">名前</th>
                 <th scope="col">メールアドレス</th>
-                <th scope="col">パスワード</th>
+                <!-- <th scope="col">パスワード</th> -->
                 <th scope="col">削除</th>
             </tr>
         </thead>
@@ -46,7 +46,7 @@ $rows =$sth->fetchAll(PDO::FETCH_ASSOC);
             <td><?php echo htmlspecialchars($r['id']); ?></td>
             <td><?php echo htmlspecialchars($r['name']); ?></td>
             <td><?php echo htmlspecialchars($r['email']);?></td>
-            <td><?php echo htmlspecialchars($r['password']);?></td>
+            <!-- <td><?php echo htmlspecialchars($r['password']);?></td> -->
             <td>
                 <form action="delete.php" method="post" onsubmit="return confirm('本当に削除しますか？');">
                     <!-- <input type="hidden" name="mode" value="del"> -->
@@ -61,9 +61,8 @@ $rows =$sth->fetchAll(PDO::FETCH_ASSOC);
     <?php endif; ?>
 </main>
 
-<!-- フッター -->
-<?php include_once('footer.php')?>
-
 <script>
 document.getElementById('title').innerHTML="管理者ページ";
 </script>
+<!-- フッター -->
+<?php include_once('footer.php')?>

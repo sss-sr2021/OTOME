@@ -15,6 +15,6 @@ require_once 'function.php';
 * 関数呼び出し : ログアウト
 */
 logOut();
-// header('Location:index.php');
+header('Location:login_top.php');
 print_r($_SESSION);
 ?>

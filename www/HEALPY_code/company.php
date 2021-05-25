@@ -7,7 +7,7 @@ Update：2021.05.21
  -->
  <?php include_once('header.php')?>
 
- <main>
+ <main  class="contents">
             <dl class="overview">
                 <dt class="	corporate-name">
                     団体名

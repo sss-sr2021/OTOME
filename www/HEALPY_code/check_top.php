@@ -8,10 +8,12 @@ Update：2021.05.21
 <?php include_once('header.php')?>
  
     <!-- メインコンテンツ -->
-    <main>
+    <main  class="contents">
         <h3>健康チェックTOP</h3>
+        <div class="sub_contents">
         <p>今日の健康チェックをしましょう</p>
-        <p><a id="link_button" href="check.php">スタート</a></p>
+        </div>
+        <p class="button"><a id="link_button" href="check.php">スタート</a></p>
     </main>
  
     <!-- フッター -->
