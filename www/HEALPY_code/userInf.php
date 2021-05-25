@@ -18,7 +18,7 @@ $dbh = dbInit();
         <p>体重：<input type="number" name ="weight" value="<?= $_SESSION['weight']?>" readonly><br/></p>
         <p>目標体重：<input type="number" name ="target_weight" value="<?= $_SESSION['target_weight']?>" readonly><br/></p>
         </form>
-        <a id="link_button" href="userInf_change.php">変更する</a>
+        <a id="link_button" href="userInf_change.php">変更ページへ</a>
         </div>
         
     </main>

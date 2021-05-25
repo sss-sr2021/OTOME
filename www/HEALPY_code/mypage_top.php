@@ -6,7 +6,16 @@ Crated：2021.05.19
 Update：2021.05.20
  -->
 
- <?php include_once('header.php')?>
+ <?php include_once('header.php');
+ if(!isset($_SESSION['logined'])){?>
+    <script>
+        alert('ログインしてください');
+        location.href="login_top.php";
+    </script>
+    
+    <?php }
+    
+ ?>
     <!-- メインコンテンツ -->
     <main  class="contents">
     <div class="sub_contents">

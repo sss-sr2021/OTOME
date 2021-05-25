@@ -49,7 +49,7 @@ if (isset($_POST['submit'])){
         <form action="" method="post">
         メールアドレス：<input type="email" name ="mail" value="" required><br/>
         パスワード：<input type="password" name ="password" value="" required><br/>
-        <input type="submit" name ="submit" value="ログイン">
+        <input id="link_button" type="submit" name ="submit" value="ログイン">
         </form>
         </div>
     </main>
