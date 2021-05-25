@@ -12,6 +12,14 @@
 session_start();
 require_once 'function.php';
 $dbh = dbInit();
+if(!isset($_SESSION['logined'])){?>
+    <script>
+        alert('ログインしてください');
+        location.href="login_top.php";
+    </script>
+    
+    <?php }
+    
 
 if (empty($_SESSION['target_weight'])){
     // 目標体重の登録無：recipe_type=1 standard

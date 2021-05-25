@@ -14,6 +14,15 @@ require_once 'function.php';
 $points = getPoint(['user_id' => $_SESSION['id']]);
 //   var_dump($_SESSION['name']);
 //  var_dump($_SESSION['getPoint'][0]['rg_date']);
+
+if(!isset($_SESSION['logined'])){?>
+<script>
+    alert('ログインしてください');
+    location.href="login_top.php";
+</script>
+
+<?php }
+
 ?>
 
  
