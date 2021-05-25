@@ -15,23 +15,27 @@ $dbh = dbInit();
 
 <?php
 if (isset($_POST['submit'])){
-    $password = password_hash($_POST['password'],PASSWORD_DEFAULT);
+    $password1 = filter_input(INPUT_POST, 'password');
+    $con_password = filter_input(INPUT_POST, 'con_password');
     $name = filter_input(INPUT_POST, 'name');
     $email = filter_input(INPUT_POST, 'mail');
     $birthday = filter_input(INPUT_POST, 'birthday');
     $height = filter_input(INPUT_POST, 'height');
     $weight = filter_input(INPUT_POST, 'weight');
     $target_weight = filter_input(INPUT_POST, 'target_weight');
-    $change = compact('password','name','email','birthday','height','weight','target_weight');
-    foreach ($change as $key => $val){
-        $sth = $dbh->prepare(            
-            "UPDATE users SET {$key} = :{$key} WHERE id=:id"
-        );
-        $ret = $sth->execute([
-            $key => $val,
-            'id' => $_SESSION['id']
-        ]);
-        $_SESSION[$key] = $val;
+    if ($password1 == $con_password){
+        $password = password_hash($_POST['password'],PASSWORD_DEFAULT);
+        $change = compact('name','email','password','birthday','height','weight','target_weight');
+        foreach ($change as $key => $val){
+            $sth = $dbh->prepare(            
+                "UPDATE users SET {$key} = :{$key} WHERE id=:id"
+            );
+            $ret = $sth->execute([
+                $key => $val,
+                'id' => $_SESSION['id']
+            ]);
+            $_SESSION[$key] = $val;
+        }
     }
 }
 ?>
@@ -42,7 +46,8 @@ if (isset($_POST['submit'])){
         <form action="" method="post">
         名前：<input type="text" name ="name" value="<?= $_SESSION['name']?>" required><br/>
         メールアドレス：<input type="email" name ="mail" value="<?= $_SESSION['email']?>" required><br/>
-        パスワード：<input type="password" maxlength='16' pattern="^[0-9A-Za-z]{8,16}$" name ="password" value="" required><br/>
+        新規パスワード：<input type="password" maxlength='16' pattern="^[0-9A-Za-z]{8,16}$" name ="password" value="" required><br/>
+        確認パスワード：<input type="password" maxlength='16' pattern="^[0-9A-Za-z]{8,16}$" name ="con_password" value="" required><br/>
         生年月日：<input type="date" name ="birthday" value="<?= $_SESSION['birthday']?>" required><br/>
         身長：<input type="number"  step="0.1" name ="height" value="<?= $_SESSION['height']?>"><br/>  <!-- numberだけど値の型はstring-->
         体重：<input type="number" name ="weight" value="<?= $_SESSION['weight']?>"><br/>
@@ -56,7 +61,13 @@ if (isset($_POST['submit'])){
 <script>
     document.getElementById('title').innerHTML="登録情報変更";
     function userInf_change(){
-        alert("変更しました。");
-        location.href = 'userInf.php';
+        <?php if ($password1 == $con_password){ ?>
+            alert("変更しました");
+            location.href = 'userInf.php';
+        <?php }
+        else{ ?>
+            alert("パスワードが間違っています");
+        location.href = 'userInf_change.php';
+        <?php } ?>
     }
 </script>
