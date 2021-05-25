@@ -45,11 +45,13 @@ if (isset($_POST['submit'])){
     <!-- メインコンテンツ -->
     <main  class="contents">
         <h3>ログイン</h3>
+        <div class="form_contents">
         <form action="" method="post">
         メールアドレス：<input type="email" name ="mail" value="" required><br/>
         パスワード：<input type="password" name ="password" value="" required><br/>
         <input type="submit" name ="submit" value="ログイン">
         </form>
+        </div>
     </main>
  
 
