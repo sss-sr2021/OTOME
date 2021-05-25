@@ -43,8 +43,9 @@ if (isset($_POST['submit'])){
 ?>
 <?php include_once('header.php')?>
     <!-- メインコンテンツ -->
-    <main>
-        <h3>ページタイトル</h3>
+    <main  class="contents">
+        <h3>登録情報変更</h3>
+        <div class="form_contents">
         <form action="" method="post" id="change_form">
         名前：<input type="text" name ="name" value="<?= $_SESSION['name']?>" required><br/>
         メールアドレス：<input type="email" name ="mail" value="<?= $_SESSION['email']?>" required><br/>
@@ -56,9 +57,8 @@ if (isset($_POST['submit'])){
         目標体重：<input type="number" name ="target_weight" value="<?= $_SESSION['target_weight']?>"><br/>
         <input type="submit" name ="submit" value="変更する" onclick="return userInf_change()" >
         </form>
+        </div>
     </main>
-    <!-- フッター -->
-    <?php include_once('footer.php')?>
 
 <script>
     document.getElementById('title').innerHTML="登録情報変更";
@@ -81,3 +81,6 @@ if (isset($_POST['submit'])){
         }
     }
 </script>
+
+<!-- フッター -->
+<?php include_once('footer.php')?>
