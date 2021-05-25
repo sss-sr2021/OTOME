@@ -50,17 +50,18 @@ if (isset($_POST['submit'])){
 <?php include_once('header.php')?>
 
     <!-- メインコンテンツ -->
-    <main>
+    <main  class="contents">
         <h3>新規登録</h3>
+        <div class="form_contents">
         <form action="" method="post">
-        名前：<input type="text" name ="name" value="" required><br/>
-        メールアドレス：<input type="email" name ="mail" value="" required><br/>
-        パスワード：<input type="password" maxlength='16' pattern="^[0-9A-Za-z]{8,16}$" name ="password" value="" required><br/>
-        生年月日：<input type="date" name ="birthday" value="" required><br/>
-        身長：<input type="number"  step="0.1" name ="height" value=""><br/>  <!-- numberだけど値の型はstring-->
-        体重：<input type="number" name ="weight" value=""><br/>
-        目標体重：<input type="number" name ="target_weight" value=""><br/>
-        <input type="submit" name ="submit" value="登録">
+        <p>名前：<input type="text" name ="name" value="" required><br/></p>
+        <p>メールアドレス：<input type="email" name ="mail" value="" required><br/></p>
+        <p>パスワード：<input type="password" maxlength='16' pattern="^[0-9A-Za-z]{8,16}$" name ="password" value="" required><br/></p>
+        <p>生年月日：<input type="date" name ="birthday" value="" required><br/></p>
+        <p>身長：<input type="number"  step="0.1" name ="height" value=""><br/></p>  <!-- numberだけど値の型はstring-->
+        <p>体重：<input type="number" name ="weight" value=""><br/></p>
+        <p>目標体重：<input type="number" name ="target_weight" value=""><br/></p>
+        <input id="link_button" type="submit" name ="submit" value="登録">
         </form>
     </main>
 
