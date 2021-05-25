@@ -14,6 +14,8 @@ $dbh = dbInit();
 ?>
 
 <?php
+$flag = 0;
+
 if (isset($_POST['submit'])){
     $password1 = filter_input(INPUT_POST, 'password');
     $con_password = filter_input(INPUT_POST, 'con_password');
@@ -22,8 +24,9 @@ if (isset($_POST['submit'])){
     $birthday = filter_input(INPUT_POST, 'birthday');
     $height = filter_input(INPUT_POST, 'height');
     $weight = filter_input(INPUT_POST, 'weight');
+    
     $target_weight = filter_input(INPUT_POST, 'target_weight');
-    if ($password1 == $con_password){
+    if ($password1 == $con_password && $password1 != '' && $con_password != ''){
         $password = password_hash($_POST['password'],PASSWORD_DEFAULT);
         $change = compact('name','email','password','birthday','height','weight','target_weight');
         foreach ($change as $key => $val){
@@ -35,11 +38,11 @@ if (isset($_POST['submit'])){
                 'id' => $_SESSION['id']
             ]);
             $_SESSION[$key] = $val;
+            $flag = 1;
         }
-    }
+    }    
     header('Location: userInf.php');
 }
-
 ?>
 <?php include_once('header.php')?>
     <!-- メインコンテンツ -->
@@ -66,10 +69,12 @@ if (isset($_POST['submit'])){
         var new_pass = document.getElementsByName('password')[0];
         var con_pass = document.getElementsByName('con_password')[0];
         var form = document.getElementById('change_form');
-        if (new_pass.value == con_pass.value){
+        <?php if ($flag == 1){ ?>
             alert("変更しました");
-        }
-        else{
+            // header('Location: userInf.php');
+            // location.href = 'userInf.php';
+        <?php } ?>
+        elseif ($flag == 0){
             alert("パスワードが間違っています");
             new_pass.value = '';
             con_pass.value = '';
