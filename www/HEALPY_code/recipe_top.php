@@ -41,9 +41,9 @@ else{
     <img src="recipe/<?= $rows[$recipe][0] ?>" width="60%" />
 </main>
 
-<!-- フッター -->
-<?php include_once('footer.php')?>
-
 <script>
 document.getElementById('title').innerHTML="レシピ";
 </script>
+
+<!-- フッター -->
+<?php include_once('footer.php')?>
