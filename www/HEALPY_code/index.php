@@ -99,6 +99,7 @@ var myLineChart = new Chart(ctx, {
     width: 70% !important;      /* グラフの幅   */
     height: 40vh !important;    /* グラフの高さ */
     margin: 1em auto;           /* マージン     */
+    margin-bottom:20%;
 }
 </style>
 </html>
