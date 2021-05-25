@@ -23,7 +23,7 @@ if (isset($_POST['submit'])){
     $height = filter_input(INPUT_POST, 'height');
     $weight = filter_input(INPUT_POST, 'weight');
     $target_weight = filter_input(INPUT_POST, 'target_weight');
-    if ($password1 == $con_password){
+    if ($password1 == $con_password && $password1 != '' && $con_password != ''){
         $password = password_hash($_POST['password'],PASSWORD_DEFAULT);
         $change = compact('name','email','password','birthday','height','weight','target_weight');
         foreach ($change as $key => $val){
@@ -44,21 +44,21 @@ if (isset($_POST['submit'])){
 <?php include_once('header.php')?>
     <!-- メインコンテンツ -->
     <main>
-        <h3>登録情報変更</h3>
-        <div class="form_contents">
-        <form action="" method="post" id="change_form"></p>
-        <p>名前：<input type="text" name ="name" value="<?= $_SESSION['name']?>" required><br/></p>
-        <p>メールアドレス：<input type="email" name ="mail" value="<?= $_SESSION['email']?>" required><br/></p>
-        <p>新規パスワード：<input type="password" maxlength='16' pattern="^[0-9A-Za-z]{8,16}$" name ="password" value="" required><br/></p>
-        <p>確認パスワード：<input type="password" maxlength='16' pattern="^[0-9A-Za-z]{8,16}$" name ="con_password" value="" required><br/></p>
-        <p>生年月日：<input type="date" name ="birthday" value="<?= $_SESSION['birthday']?>" required><br/></p>
-        <p>身長：<input type="number"  step="0.1" name ="height" value="<?= $_SESSION['height']?>"><br/>  <!-- numberだけど値の型はstring-->
-        <p>体重：<input type="number" name ="weight" value="<?= $_SESSION['weight']?>"><br/></p>
-        <p>目標体重：<input type="number" name ="target_weight" value="<?= $_SESSION['target_weight']?>"><br/></p>
+        <h3>ページタイトル</h3>
+        <form action="" method="post" id="change_form">
+        名前：<input type="text" name ="name" value="<?= $_SESSION['name']?>" required><br/>
+        メールアドレス：<input type="email" name ="mail" value="<?= $_SESSION['email']?>" required><br/>
+        新規パスワード：<input type="password" maxlength='16' pattern="^[0-9A-Za-z]{8,16}$" name ="password" value="" required><br/>
+        確認パスワード：<input type="password" maxlength='16' pattern="^[0-9A-Za-z]{8,16}$" name ="con_password" value="" required><br/>
+        生年月日：<input type="date" name ="birthday" value="<?= $_SESSION['birthday']?>" required><br/>
+        身長：<input type="number"  step="0.1" name ="height" value="<?= $_SESSION['height']?>"><br/>  <!-- numberだけど値の型はstring-->
+        体重：<input type="number" name ="weight" value="<?= $_SESSION['weight']?>"><br/>
+        目標体重：<input type="number" name ="target_weight" value="<?= $_SESSION['target_weight']?>"><br/>
         <input type="submit" name ="submit" value="変更する" onclick="return userInf_change()" >
         </form>
-        </div>
     </main>
+    <!-- フッター -->
+    <?php include_once('footer.php')?>
 
 <script>
     document.getElementById('title').innerHTML="登録情報変更";
@@ -66,6 +66,10 @@ if (isset($_POST['submit'])){
         var new_pass = document.getElementsByName('password')[0];
         var con_pass = document.getElementsByName('con_password')[0];
         var form = document.getElementById('change_form');
+        if (new_pass.value == '' || con_pass.value == ''){
+            alert("パスワードを入力してください");
+            return false;
+        }
         if (new_pass.value == con_pass.value){
             alert("変更しました");
         }
@@ -77,6 +81,3 @@ if (isset($_POST['submit'])){
         }
     }
 </script>
-
-<!-- フッター -->
-<?php include_once('footer.php')?>
