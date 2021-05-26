@@ -49,12 +49,12 @@ if (isset($_POST['submit'])){
         <form action="" method="post" id="change_form">
         <p>名前：<input type="text" name ="name" value="<?= $_SESSION['name']?>" required><br/></p>
         <p>メールアドレス：<input type="email" name ="mail" value="<?= $_SESSION['email']?>" required><br/></p>
-        <p>新規パスワード：<input type="password" maxlength='16' pattern="^[0-9A-Za-z]{8,16}$" name ="password" value="" required><br/></p>
-        <p>確認パスワード：<input type="password" maxlength='16' pattern="^[0-9A-Za-z]{8,16}$" name ="con_password" value="" required><br/></p>
+        <p>新規パスワード：<input type="password" pattern="^[0-9A-Za-z]{8,16}$" name ="password" value="" placeholder="8桁以上16桁未満"  required><br/></p>
+        <p>確認パスワード：<input type="password" pattern="^[0-9A-Za-z]{8,16}$" name ="con_password" value="" placeholder="上記と同じパスワード"  required><br/></p>
         <p>生年月日：<input type="date" name ="birthday" value="<?= $_SESSION['birthday']?>" required><br/></p>
-        <p>身長：<input type="number"  step="0.1" name ="height" value="<?= $_SESSION['height']?>"><br/></p>  <!-- numberだけど値の型はstring-->
-        <p>体重：<input type="number" name ="weight" value="<?= $_SESSION['weight']?>"><br/></p>
-        <p>目標体重：<input type="number" name ="target_weight" value="<?= $_SESSION['target_weight']?>"><br/></p>
+        <p>身長：<input type="number"  step="0.1" name ="height" value="<?= $_SESSION['height']?>">&nbsp;&nbsp;cm<br/></p>  <!-- numberだけど値の型はstring-->
+        <p>体重：<input type="number" name ="weight" value="<?= $_SESSION['weight']?>">&nbsp;&nbsp;kg<br/></p>
+        <p>目標体重：<input type="number" name ="target_weight" value="<?= $_SESSION['target_weight']?>">&nbsp;&nbsp;kg<br/></p>
         <input id="link_button" type="submit" name ="submit" value="変更する" onclick="return userInf_change()" >
         </form>
         </div>

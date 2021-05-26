@@ -23,7 +23,7 @@ Update：2021.05.20
                 <p>Q1<br />
                     今日歩いた歩数を入力してください。
                 </p>
-                <input type="number" id="step" name ="step" value="">
+                <input type="number" id="step" name ="step" min="0" value="">
                 <a id="qbtn" href ="javascript:return false;">決定</a>
             </div>
             <div class="question">
@@ -102,7 +102,7 @@ Update：2021.05.20
             next.show();
             if(count === 0){
                 //console.log(step.value);
-                kcal = Number(step.value)*0.03;//カロリー計算
+                kcal = Math.round(Number(step.value)*0.03) / 10;//カロリー計算
                 //console.log(kcal);
                 if(Number(step.value)>=10000){
                     point+=6;

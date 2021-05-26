@@ -55,12 +55,12 @@ if (isset($_POST['submit'])){
         <div class="form_contents">
         <form action="" method="post">
         <p>名前：<input type="text" name ="name" value="" required><br/></p>
-        <p>メールアドレス：<input type="email" name ="mail" value="" required><br/></p>
-        <p>パスワード：<input type="password" maxlength='16' pattern="^[0-9A-Za-z]{8,16}$" name ="password" value="" required><br/></p>
+        <p>メールアドレス：<input type="email" name ="mail" value="" placeholder="○○○＠○○○○" required><br/></p>
+        <p>パスワード：<input type="password" pattern="^[0-9A-Za-z]{8,16}$" name ="password" value="" placeholder="8桁以上16桁未満"required><br/></p>
         <p>生年月日：<input type="date" name ="birthday" value="" required><br/></p>
-        <p>身長：<input type="number"  step="0.1" name ="height" value=""><br/></p>  <!-- numberだけど値の型はstring-->
-        <p>体重：<input type="number" name ="weight" value=""><br/></p>
-        <p>目標体重：<input type="number" name ="target_weight" value=""><br/></p>
+        <p>身長：<input type="number"  step="0.1" name ="height" value="">&nbsp;&nbsp;cm<br/></p>  <!-- numberだけど値の型はstring-->
+        <p>体重：<input type="number" name ="weight" value="">&nbsp;&nbsp;kg<br/></p>
+        <p>目標体重：<input type="number" name ="target_weight" value="" placeholder="登録しない場合は0を入力">&nbsp;&nbsp;kg<br/></p>
         <input id="link_button" type="submit" name ="submit" value="登録">
         </form>
     </main>
