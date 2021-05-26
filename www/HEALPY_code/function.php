@@ -134,3 +134,21 @@ global $dbh;
         // }
     }
 
+    /***
+    * 関数 : HTMLからheader以上とfooter以下を取り除く
+    * $file : HTMLファイル
+    * $show : echo 表示/非表示
+    * return 本体だけのHTML
+    */
+    function trimHtml($file, $show=false){
+        $html = '';
+        if(file_exists($file)){
+            $html = file_get_contents($file);
+            $html = preg_replace('#^.*<\?php include_once\(\'header.php\'\)\?>#m','',$html);
+            $html = preg_replace('#<\?php include_once\(\'footer.php\'\)\?>.*$#m','',$html);
+        }
+        if($show) echo $html;
+        return $html;
+    }
+    
+
