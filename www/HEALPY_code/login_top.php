@@ -18,61 +18,64 @@ Update：2021.05.20
            今日から一緒に頑張りましょう。
         </p>
         <div class="login_button">
-        <a id="link_button" href="sign_up.php">新規登録</a>
+        <a id="link_button"  class="sign" href="#">新規登録</a>
         <a id="link_button" href="login.php">ログイン</a>
         </div>
         </div>
-        <dialog class="policy">
-            <form method="dialog">
-                <div id="modal-header">
-                プライバシーポリシー
-                </div>
-                <div id="modal-header">
-                内容
-                </div>
-                <menu>
-                    <button class="ok" value="OK">OK</button>
-                </menu>
-            </form>
-        </dialog>
+
+        <!-- プライバシーポリシーのダイアログ -->
+        <dialog class="policy" height="80%">
+                    <form method="dialog">
+                        <?php trimHtml('policy.php', true); ?>
+                        <!-- <iframe src="policy.php"></iframe> -->
+                        <menu>
+                        <div id="modal_security">
+                            <button class="bt1" id="agree_btn">同意</button>
+                        </div>
+                        </menu>
+                    </form>
+                </dialog>
+
+        <!-- 利用規約のダイアログ -->
         <dialog class="service">
             <form method="dialog">
-                <div id="modal-header">
-                利用規約
-                </div>
-                <div id="modal-header">
-                内容
-                </div>
+                <?php trimHtml('service.php', true); ?>
                 <menu>
-                    <button class="ok" value="OK">OK</button>
+                <div id="modal_security">
+                    <button class="bt2" id="agree_btn">同意</button>
+                    </div>
                 </menu>
             </form>
         </dialog>
+
+        <!-- 運営会社のダイアログ -->
         <dialog class="company">
             <form method="dialog">
-                <div id="modal-header">
-                運営会社
-                </div>
-                <div id="modal-header">
-                内容
-                </div>
+                <?php trimHtml('company.php', true); ?>
                 <menu>
-                    <button class="bt" value="OK">OK</button>
+                <div id="modal_security">
+                    <button class="bt3" id="agree_btn">同意</button>
+                </div>
                 </menu>
             </form>
         </dialog>
     </main>
- 
     <!-- フッター -->
     <?php include_once('footer.php')?>
     
 <script>
     document.getElementById('title').innerHTML="HEALPYとは";
     var open = document.querySelector('.sign');
-    var close = document.querySelector('.bt');
+    var close1 = document.querySelector('.bt1');
+    var close2 = document.querySelector('.bt2');
+    var close3 = document.querySelector('.bt3');
+    
     var modal1 = document.querySelector('dialog.policy');
     var modal2 = document.querySelector('dialog.service');
     var modal3 = document.querySelector('dialog.company');
+
+    var modal = modal1;
+
     
 
     open.addEventListener('click',() => modal1.showModal());
@@ -81,12 +84,14 @@ Update：2021.05.20
         if(sw == 1){
             modal1.close();
             modal2.showModal();
+            modal = modal2;
             sw++;
         }
         else
         if(sw == 2){
             modal2.close();
             modal3.showModal();
+            modal = modal3;
             sw++;
         }
         else{
@@ -94,7 +99,10 @@ Update：2021.05.20
             location.replace('sign_up.php');
         }
     }
-    close.addEventListener('click',() => threeModal());
+    close1.addEventListener('click',() => threeModal());
+    close2.addEventListener('click',() => threeModal());
+    close3.addEventListener('click',() => threeModal());
+    
 
     // 対象外の所を押したらダイアログが消える
     document.addEventListener('click', ({
