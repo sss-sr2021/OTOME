@@ -13,8 +13,7 @@ Update：2021.05.20
 
 //-----クエリ実行　$dbhの内容を$sthに--------------------------------------------------
 $sth = $dbh->query(
-    'SELECT id, name, email,password' //id name priceを
-    .' FROM users' //itemテーブルから
+    "SELECT id, name, email FROM users WHERE NOT name='管理者'" //itemテーブルから
     .' ORDER BY id' //idで昇順に並び替え
 );
 
@@ -26,11 +25,11 @@ $rows =$sth->fetchAll(PDO::FETCH_ASSOC);
 
 <!-- メインコンテンツ -->
 <main  class="contents">
-    <h3 class="page_title">管理者ページ</h3>
+    <h2 class="page_title">管理者ページ</h2>
     <?php if(!$rows):?>
     <div>アイテムが見つかりませんでした。</div>
     <?php else: ?>
-        <table id="admin_table" style =border:double 2px rules="all">
+        <table id="admin_table">
         <thead>
             <tr>
                 <th scope="col">ID</th>
@@ -41,17 +40,19 @@ $rows =$sth->fetchAll(PDO::FETCH_ASSOC);
             </tr>
         </thead>
         <tbody>
-    <?php foreach($rows as $r): ?> <!--$rowを$rに-->
+    <?php foreach($rows as $r): 
+         //print_r($r);
+        ?> <!--$rowを$rに-->
         <tr>
-            <td><?php echo htmlspecialchars($r['id']); ?></td>
-            <td><?php echo htmlspecialchars($r['name']); ?></td>
-            <td><?php echo htmlspecialchars($r['email']);?></td>
-            <!-- <td><?php echo htmlspecialchars($r['password']);?></td> -->
+            <td><?php echo htmlspecialchars(@$r['id']); ?></td>
+            <td><?php echo htmlspecialchars(@$r['name']); ?></td>
+            <td><?php echo htmlspecialchars(@$r['email']);?></td>
+            <!-- <td><?php echo htmlspecialchars(@$r['password']);?></td> -->
             <td>
                 <form action="delete.php" method="post" onsubmit="return confirm('本当に削除しますか？');">
                     <!-- <input type="hidden" name="mode" value="del"> -->
                     <input type="hidden" name="id" value="<?php echo htmlspecialchars($r['id'],ENT_QUOTES);?>">
-                    <input type="submit" name="submit" value="削除">
+                    <input id="delete_button" type="submit" name="submit" value="削除">
                 </form>
             </td>
         </tr>
@@ -63,6 +64,10 @@ $rows =$sth->fetchAll(PDO::FETCH_ASSOC);
 
 <script>
 document.getElementById('title').innerHTML="管理者ページ";
+$("meta[name='robots']").attr('content','index, nofollow');
+$("meta[property='og:title']").attr('content','管理者ページ');
+$("meta[name='twitter:site']").attr('content','管理者ページ');
 </script>
 <!-- フッター -->
 <?php include_once('footer.php')?>
+

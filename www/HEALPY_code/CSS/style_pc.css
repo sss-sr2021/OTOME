@@ -1,16 +1,30 @@
 .sp{
   display: none;
 }
+h1{
+  font-size: 50px;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+h1 a{
+  text-decoration: none;
+  color: white;
+  margin-left: 30px;
+}
 
 header{
-  background-color: rgb(208, 208, 252);
+  /* background-color: rgb(208, 208, 252); */
+  background-color: rgb(180, 213, 218);
+  height: 100px;
 }
 footer{
-  background-color: rgb(208, 208, 252);
+  /* background-color: rgb(208, 208, 252); */
+  background-color: rgb(180, 213, 218);
   position: fixed;/*←絶対位置*/
   bottom: 0 !important; /*下に固定*/
   width: 100%;
   text-align: center;
+  padding-top: 10px;
 }
 footer .nav{
   margin-left: 60%;
@@ -18,28 +32,29 @@ footer .nav{
   height: 30px;
 }
 .nav {
-    list-style: none;
-    overflow: hidden;
-    margin-left: 20%;
-  }
+  margin-top: -20px;
+  list-style: none;
+  overflow: hidden;
+  margin-left: 30%;
+}
    
 .nav li {
-    list-style: none;
-    width: 160px;
-    text-align: center;
-    float: left;
+  list-style: none;
+  width: 160px;
+  padding-top: 10px;
+  text-align: center;
+  float: left;
   }
    
 .nav li a {
     text-decoration: none;
     font-weight: bold;
     color: white;
-  }
-
-#footer_nav a{
-  font-size: 13px;
-
 }
+.nav li a img{
+  margin-top: -10px;
+}
+
 #logout{
   width: 20px;
 }

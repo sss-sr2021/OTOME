@@ -11,7 +11,7 @@ Update：2021.05.20
  <?php 
 @session_start();
 require_once 'function.php';
-$points = getPoint(['user_id' => $_SESSION['id']]);
+$points = getPoint(['user_id' => @$_SESSION['id']]);
 //   var_dump($points[date('Y-m-d')]); 今日の点数
 //   var_dump(array_values($points));
 
@@ -23,26 +23,44 @@ if(!isset($_SESSION['logined'])){?>
 
 <?php }
 
-if($points[date('Y-m-d')]<=0){
+if(@$points[date('Y-m-d')]<=0){
     $comment='お疲れではありませんか？ゆっくりお休みください';
-}elseif($points[date('Y-m-d')]<=5){
+}elseif(@$points[date('Y-m-d')]<=5){
     $comment='少しお疲れですか？生活リズムを見直しましょう';
-}elseif($points[date('Y-m-d')]<=11){
+}elseif(@$points[date('Y-m-d')]<=11){
     $comment='順調ですね！この調子でポイントアップを目指しましょう';
 }else{
     $comment='絶好調ですね！このままキープしましょう！';
 }
+
+$time = date('G');
+//var_dump($time);
+if($time<=11){
+    $aisatsu = 'おはようございます';
+}elseif($time<=17){
+    $aisatsu = 'こんにちは';
+}else{
+    $aisatsu = 'こんばんは';
+
+}
+
+if(isset($points[date('Y-m-d')])){
+    $tensuu = '今日のポイントは'.$points[date('Y-m-d')].'点でした';
+}else{
+    $tensuu = '今日の健康チェックをしましょう';
+}
+
 
 ?>
 
  
 <!-- メインコンテンツ -->
 <main  class="contents">
-    <h3 id="date">日付</h3>
+    <h2 id="date">日付</h2>
     <div class="sub_contents">
-        <!-- <p>今日のポイント</p> -->
+    <p id="text"><span style="font-weight: bold"><?=$_SESSION['name']?></span>さん<?=$aisatsu?></p>
+        <p><?=@$tensuu?></p>
         <p><?=@$_SESSION['getPoint'][0]['point']?></p>
-        <p><?=$_SESSION['name']?>さんの過去データ</p>
         <p><?=$comment?></p>
     </div>
     <!-- ↓以下グラフを表示↓ -->
@@ -58,6 +76,10 @@ if($points[date('Y-m-d')]<=0){
 
 <script>
 document.getElementById('title').innerHTML="HEALPYトップ";
+$("meta[name='description']").attr('content','HEALPYトップページ');
+$("meta[property='og:title']").attr('content','HEALPYトップ');
+$("meta[name='twitter:site']").attr('content','HEALPYトップページ');
+
 var today = new Date();
 console.log(today);
 var year =today.getFullYear();
@@ -82,7 +104,7 @@ var myLineChart = new Chart(ctx, {
             {
                 label: 'ポイント',                  // 線のラベル
                 data: ['<?=implode("','",array_values($points))?>'],            //　値
-                borderColor: "rgba(0,0,255,1)",     // 線の色
+                borderColor: "rgba(228, 152, 152)",     // 線の色
                 backgroundColor: "rgba(0,0,0,0)",   // 線の背景色
                 lineTension: 0,                     // なめらかな曲線をoff
             }
@@ -115,7 +137,7 @@ var myLineChart = new Chart(ctx, {
 <style type="text/css">
 /* グラフの設定 */
 #myChart {
-    width: 70% !important;      /* グラフの幅   */
+    width: 80% !important;      /* グラフの幅   */
     height: 40vh !important;    /* グラフの高さ */
     margin: 1em auto;           /* マージン     */
     margin-bottom:20%;

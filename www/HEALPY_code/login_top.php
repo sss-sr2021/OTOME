@@ -18,7 +18,7 @@ Update：2021.05.20
            今日から一緒に頑張りましょう。
         </p>
         <div class="login_button">
-        <a id="link_button"  class="sign" href="javascript:return false;">新規登録</a>
+        <a id="link_button" href="sign_up.php">新規登録</a>
         <a id="link_button" href="login.php">ログイン</a>
         </div>
         </div>
@@ -62,6 +62,7 @@ Update：2021.05.20
             </form>
         </dialog>
     </main>
+ 
     <!-- フッター -->
     <?php include_once('footer.php')?>
     

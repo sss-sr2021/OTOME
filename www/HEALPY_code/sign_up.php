@@ -51,7 +51,7 @@ if (isset($_POST['submit'])){
 
     <!-- メインコンテンツ -->
     <main  class="contents">
-        <h3>新規登録</h3>
+        <h2>新規登録</h2>
         <div class="form_contents">
         <form action="" method="post">
         <p>名前：<input type="text" name ="name" value="" required><br/></p>
@@ -70,4 +70,7 @@ if (isset($_POST['submit'])){
 
 <script>
     document.getElementById('title').innerHTML="新規登録";
+    $("meta[name='description']").attr('content','新規登録');
+    $("meta[property='og:title']").attr('content','新規登録');
+    $("meta[name='twitter:site']").attr('content','新規登録');
 </script>

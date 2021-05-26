@@ -8,7 +8,7 @@ Update：2021.05.21
  <?php include_once('header.php')?>
 
  <main  class="contents">
- <h3>運営会社</h3>
+ <h2>運営会社</h2>
     <div class="sub_contents">
             <dl class="overview">
                 <dt class="	corporate-name">
@@ -53,6 +53,9 @@ Update：2021.05.21
 
 <script>
     document.getElementById('title').innerHTML="運営会社";
+    $("meta[name='description']").attr('content','運営団体');
+    $("meta[property='og:title']").attr('content','運営団体');
+    $("meta[name='twitter:site']").attr('content','運営団体');
 </script>
 
 <!-- フッター -->

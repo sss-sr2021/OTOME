@@ -7,7 +7,7 @@ $dbh = dbInit();
 
     <!-- メインコンテンツ -->
     <main  class="contents">
-        <h3>ユーザ登録情報</h3>
+        <h2>ユーザ登録情報</h2>
         <div class="form_contents">
         <form action="" method="post" class="userInf">
         <p>名前：<input type="text" name ="name" value="<?= $_SESSION['name']?>" readonly><br/></p>
@@ -23,9 +23,12 @@ $dbh = dbInit();
         
     </main>
 
-    <!-- フッター -->
-    <?php include_once('footer.php')?>
-
 <script>
     document.getElementById('title').innerHTML="登録情報";
+    $("meta[name='description']").attr('content','登録情報');
+    $("meta[property='og:title']").attr('content','登録情報');
+    $("meta[name='twitter:site']").attr('content','登録情報');
 </script>
+
+<!-- フッター -->
+<?php include_once('footer.php')?>

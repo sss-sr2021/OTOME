@@ -25,7 +25,8 @@ header.sp{
   left: 0%;
   bottom: 0%;
   width: 100%;
-  background-color: rgb(208, 208, 252);
+  /* background-color: rgb(208, 208, 252); */
+  background-color: rgb(180, 213, 218);
 }
 header.sp li{
   padding-top: 15px;
@@ -49,4 +50,7 @@ header.sp a{
 }
 dd{
   padding-bottom: 20px;
+}
+#recipe_img{
+  width: 100%;
 }

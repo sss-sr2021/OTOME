@@ -35,4 +35,7 @@ Update：2021.05.20
 
 <script>
     document.getElementById('title').innerHTML="マイページ";
+    $("meta[name='description']").attr('content','マイページ');
+    $("meta[property='og:title']").attr('content','マイページ');
+    $("meta[name='twitter:site']").attr('content','マイページ');
 </script>

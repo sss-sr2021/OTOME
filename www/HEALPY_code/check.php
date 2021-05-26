@@ -11,10 +11,12 @@ Update：2021.05.20
     if(isset($_POST['check_point'])){
         //header('Location:check_result.php');
     }
+
+        
 ?> 
     <!-- メインコンテンツ -->
     <main  class="contents">
-        <h3>健康チェック</h3>
+        <h2>健康チェック</h2>
         <div class="sub_contents">
         <div class="check">
             <div class="question">
@@ -71,7 +73,7 @@ Update：2021.05.20
             <form action ="check_result.php" method="POST">
                 <input type ="hidden" name ="point" id="point" value="">
                 <input type ="hidden" name ="kcal" id="kcal" value="">
-                <input id="link_button" type="submit" name="check_point" value="結果">
+                <input id="link_button" type="submit" name="check_point" value="結果ページへ">
             </form>
             </div>
         </div>
@@ -80,6 +82,10 @@ Update：2021.05.20
 
 <script  type="text/javascript">
     document.getElementById('title').innerHTML="健康チェック";
+
+    $("meta[name='description']").attr('content','健康チェックページ');
+    $("meta[property='og:title']").attr('content','健康チェック');
+    $("meta[name='twitter:site']").attr('content','健康チェックページ');
     // var question = document.getElementsByClassName('question');
     // console.log(question);//配列
 

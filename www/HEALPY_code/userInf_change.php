@@ -44,7 +44,7 @@ if (isset($_POST['submit'])){
 <?php include_once('header.php')?>
     <!-- メインコンテンツ -->
     <main  class="contents">
-        <h3>登録情報変更</h3>
+        <h2>登録情報変更</h2>
         <div class="form_contents">
         <form action="" method="post" id="change_form">
         <p>名前：<input type="text" name ="name" value="<?= $_SESSION['name']?>" required><br/></p>
@@ -62,6 +62,10 @@ if (isset($_POST['submit'])){
 
 <script>
     document.getElementById('title').innerHTML="登録情報変更";
+    $("meta[name='description']").attr('content','登録情報変更');
+    $("meta[property='og:title']").attr('content','登録情報変更');
+    $("meta[name='twitter:site']").attr('content','登録情報変更');
+
     function userInf_change(){
         var new_pass = document.getElementsByName('password')[0];
         var con_pass = document.getElementsByName('con_password')[0];

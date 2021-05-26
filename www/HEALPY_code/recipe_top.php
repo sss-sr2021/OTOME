@@ -28,7 +28,7 @@ if (empty($_SESSION['target_weight'])){
     $ret = $sth->execute();
     $rows = $sth->fetchAll();  //$rowsの中に配列として「standardレシピ」入ってる
     $recipe = array_rand($rows, 1);
-    $a='';
+    $a='簡単';
 }
 else{
     // 目標体重の登録有：recipe_type=2 healthy
@@ -45,15 +45,18 @@ else{
 
 <!-- メインコンテンツ -->
 <main class="contents">
-    <h3>レシピ</h3>
+    <h2>レシピ</h2>
     <div class="form_contents">
-    <p>おすすめ<?php echo $a ?>レシピをご紹介</p>
+    <p>おすすめ<?php echo $a ?>レシピをご紹介します</p>
     </div>
     <img id="recipe_img" src="recipe/<?= $rows[$recipe][0] ?>"/>
 </main>
 
 <script>
-document.getElementById('title').innerHTML="レシピ";
+    document.getElementById('title').innerHTML="レシピ";
+    $("meta[name='description']").attr('content','レシピページ');
+    $("meta[property='og:title']").attr('content','レシピページ');
+    $("meta[name='twitter:site']").attr('content','レシピページ');
 </script>
 
 <!-- フッター -->

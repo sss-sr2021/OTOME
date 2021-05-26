@@ -10,7 +10,7 @@ Update：2021.05.20
         <nav class="nav">
                 <ul>
                 <li><a href="policy.php">プライバシーポリシー</a></li>
-                <li><a href="service.php">利用規約表示画面</a></li>
+                <li><a href="service.php">利用規約</a></li>
                 <li><a href="company.php">運営会社</a></li>
             </ul>
         </nav>

@@ -44,7 +44,7 @@ if (isset($_POST['submit'])){
  
     <!-- メインコンテンツ -->
     <main  class="contents">
-        <h3>ログイン</h3>
+        <h2>ログイン</h2>
         <div class="form_contents">
         <form action="" method="post">
         <p>メールアドレス：<input type="email" name ="mail" value="" required><br/></p>
@@ -57,6 +57,9 @@ if (isset($_POST['submit'])){
 
 <script>
     document.getElementById('title').innerHTML="ログイン";
+    $("meta[name='description']").attr('content','ログイン');
+    $("meta[property='og:title']").attr('content','ログイン');
+    $("meta[name='twitter:site']").attr('content','ログイン');
 </script>
 
 <!-- フッター -->

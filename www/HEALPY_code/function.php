@@ -125,6 +125,9 @@ global $dbh;
                 $point = $value['point'];
                 $res[$date]=$point;
             }
+            if(empty($res[date('Y-m-d')])){
+                unset($res[date('Y-m-d')]);
+            }
             // var_dump($rows);
             
             return $res;

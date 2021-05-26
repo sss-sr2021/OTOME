@@ -10,7 +10,7 @@ Update：2021.05.20
  
     <!-- メインコンテンツ -->
     <main class="contents">
-        <h3>プライバシーポリシー</h3>
+        <h2>プライバシーポリシー</h2>
             <p class="openning">
                 ***運営団体***（以下、「当社」といいます。）は、本ウェブサイト上で提供するサービス（以下,「本サービス」といいます。）における、ユーザーの個人情報の取扱いについて、以下のとおりプライバシーポリシー（以下、「本ポリシー」といいます。）を定めます。
             </p>
@@ -231,4 +231,7 @@ Update：2021.05.20
 
 <script>
     document.getElementById('title').innerHTML="プライバシーポリシー";
+    $("meta[name='description']").attr('content','プライバシーポリシー');
+    $("meta[property='og:title']").attr('content','プライバシーポリシー');
+    $("meta[name='twitter:site']").attr('content','プライバシーポリシー');
 </script>
