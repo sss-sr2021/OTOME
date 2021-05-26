@@ -18,15 +18,36 @@ Update：2021.05.20
            今日から一緒に頑張りましょう。
         </p>
         <div class="login_button">
-        <a id="link_button" href="sign_up.php">新規登録</a>
+        <a id="link_button"  class="sign" href="#sign_up.php">新規登録</a>
         <a id="link_button" href="login.php">ログイン</a>
         </div>
         </div>
+        <dialog>
+            <form method="dialog">
+                <div id="modal-header">
+                プライバシーポリシー
+                </div>
+                <div id="modal-header">
+                内容
+                </div>
+                <menu>
+                    <button class="ok "value="OK">OK</button>
+                </menu>
+            </form>
+        </dialog>
     </main>
- 
     <!-- フッター -->
     <?php include_once('footer.php')?>
     
 <script>
     document.getElementById('title').innerHTML="HEALPYとは";
+    var open = document.querySelector('.sign');
+    var close = document.querySelector('.ok');
+    var modal = document.querySelector('dialog');
+
+    open.addEventListener('click',() => modal.showModal());
+    close.addEventListener('click',({}) => modal.close());
+    document.addEventListener('click', ({
+    target
+    }) => target === modal && modal.close());
 </script>
