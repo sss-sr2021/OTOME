@@ -71,7 +71,7 @@ Update：2021.05.20
             <form action ="check_result.php" method="POST">
                 <input type ="hidden" name ="point" id="point" value="">
                 <input type ="hidden" name ="kcal" id="kcal" value="">
-                <input type="submit" name="check_point" value="結果">
+                <input id="link_button" type="submit" name="check_point" value="結果">
             </form>
             </div>
         </div>

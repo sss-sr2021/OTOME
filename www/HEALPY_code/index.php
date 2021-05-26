@@ -12,8 +12,8 @@ Update：2021.05.20
 @session_start();
 require_once 'function.php';
 $points = getPoint(['user_id' => $_SESSION['id']]);
-//   var_dump($_SESSION['name']);
-//  var_dump($_SESSION['getPoint'][0]['rg_date']);
+//   var_dump($points[date('Y-m-d')]); 今日の点数
+//   var_dump(array_values($points));
 
 if(!isset($_SESSION['logined'])){?>
 <script>
@@ -22,6 +22,16 @@ if(!isset($_SESSION['logined'])){?>
 </script>
 
 <?php }
+
+if($points[date('Y-m-d')]<=0){
+    $comment='お疲れではありませんか？ゆっくりお休みください';
+}elseif($points[date('Y-m-d')]<=5){
+    $comment='少しお疲れですか？生活リズムを見直しましょう';
+}elseif($points[date('Y-m-d')]<=11){
+    $comment='順調ですね！この調子でポイントアップを目指しましょう';
+}else{
+    $comment='絶好調ですね！このままキープしましょう！';
+}
 
 ?>
 
@@ -33,7 +43,7 @@ if(!isset($_SESSION['logined'])){?>
         <!-- <p>今日のポイント</p> -->
         <p><?=@$_SESSION['getPoint'][0]['point']?></p>
         <p><?=$_SESSION['name']?>さんの過去データ</p>
-        <p>この調子でポイントアップを目指しましょう！</p>
+        <p><?=$comment?></p>
     </div>
     <!-- ↓以下グラフを表示↓ -->
     <!-- グラフ作成ライブラリ -->
