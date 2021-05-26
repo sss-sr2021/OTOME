@@ -35,7 +35,7 @@ footer .nav{
   margin-top: -20px;
   list-style: none;
   overflow: hidden;
-  margin-left: 30%;
+  margin-left: 20%;
 }
    
 .nav li {
@@ -50,6 +50,10 @@ footer .nav{
     text-decoration: none;
     font-weight: bold;
     color: white;
+    transition: all 0.6s ease 0s;
+}
+.nav li a:hover{
+  color: rgb(132, 156, 160);
 }
 .nav li a img{
   margin-top: -10px;
