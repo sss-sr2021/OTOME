@@ -49,7 +49,7 @@ global $dbh;
             $sql = "SELECT * FROM users WHERE {$key} = :{$key}";
             $rows = do_exec($sql,[$key=>$val]);
             }
-            $_SESSION['logined'] = $rows[0];
+            @$_SESSION['logined'] = $rows[0];
             // SettingUser($_SESSION['logined']['id']);
             return $_SESSION['logined'];
         }

@@ -33,10 +33,12 @@ if (isset($_POST['submit'])){
         }
     }
     else{
-        echo 'パスワードが間違っています';
-        logOut();
+        logout();?>
+    <script>
+    alert('パスワードが間違っています');
+</script>
         
-    }
+<?php }
 }
 
 ?>
