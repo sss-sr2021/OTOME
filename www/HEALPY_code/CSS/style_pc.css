@@ -32,6 +32,9 @@ footer .nav{
   padding-top:10px;
   height: 30px;
 }
+#footer_nav{
+  font-size: 12px;
+}
 .nav {
   margin-top: -20px;
   list-style: none;
