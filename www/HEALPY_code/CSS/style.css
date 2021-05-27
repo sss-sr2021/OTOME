@@ -11,8 +11,18 @@ h1{
 h2{
     text-align: center;
     margin-top: 70px;
-    
+}
+.page_title{
+    margin-bottom: 50px;
+}
 
+.sub_contents a{
+    text-decoration: none;
+    color: rgb(132, 156, 160);
+    transition: all 0.6s ease 0s;
+}
+.sub_contents a:hover{
+    opacity: 0.3;
 }
 
 .question{

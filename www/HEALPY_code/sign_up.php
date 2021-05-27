@@ -57,11 +57,12 @@ if (isset($_POST['submit'])){
         <p>名前：<input type="text" name ="name" value="" required><br/></p>
         <p>メールアドレス：<input type="email" name ="mail" value="" placeholder="○○○＠○○○○" required><br/></p>
         <p>パスワード：<input type="password" pattern="^[0-9A-Za-z]{8,16}$" name ="password" value="" placeholder="8桁以上16桁未満"required><br/></p>
+        <p>確認パスワード：<input type="password" pattern="^[0-9A-Za-z]{8,16}$" name ="con_password" value="" placeholder="上記と同じパスワード"  required><br/></p>
         <p>生年月日：<input type="date" name ="birthday" value="" required><br/></p>
-        <p>身長：<input type="number"  step="0.1" name ="height" value="">&nbsp;&nbsp;cm<br/></p>  <!-- numberだけど値の型はstring-->
-        <p>体重：<input type="number" name ="weight" value="">&nbsp;&nbsp;kg<br/></p>
+        <p>身長：<input type="number"  step="0.1" name ="height" value="" placeholder="登録しない場合は0を入力">&nbsp;&nbsp;cm<br/></p>  <!-- numberだけど値の型はstring-->
+        <p>体重：<input type="number" name ="weight" value="" placeholder="登録しない場合は0を入力">&nbsp;&nbsp;kg<br/></p>
         <p>目標体重：<input type="number" name ="target_weight" value="" placeholder="登録しない場合は0を入力">&nbsp;&nbsp;kg<br/></p>
-        <input id="link_button" type="submit" name ="submit" value="登録">
+        <input id="link_button" type="submit" name ="submit" value="登録"  onclick="return userInf_change()">
         </form>
     </main>
 
@@ -73,4 +74,23 @@ if (isset($_POST['submit'])){
     $("meta[name='description']").attr('content','新規登録');
     $("meta[property='og:title']").attr('content','新規登録');
     $("meta[name='twitter:site']").attr('content','新規登録');
+
+    function userInf_change(){
+        var new_pass = document.getElementsByName('password')[0];
+        var con_pass = document.getElementsByName('con_password')[0];
+        var form = document.getElementById('change_form');
+        if (new_pass.value == '' || con_pass.value == ''){
+            alert("パスワードを入力してください");
+            return false;
+        }
+        if (new_pass.value == con_pass.value){
+            alert("変更しました");
+        }
+        else{
+            alert("パスワードが間違っています");
+            new_pass.value = '';
+            con_pass.value = '';
+            return false;
+        }
+    }
 </script>
