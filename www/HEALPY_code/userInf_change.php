@@ -11,6 +11,7 @@
 session_start();
 require_once 'function.php';
 $dbh = dbInit();
+$ok=false;
 ?>
 
 <?php
@@ -36,8 +37,15 @@ if (isset($_POST['submit'])){
             ]);
             $_SESSION[$key] = $val;
         }
-    }
-    header('Location: userInf.php');
+        // $ok=true;
+         ?>
+         <script>
+             alert('変更しました');
+             location.href="userInf.php";
+         </script>
+         <?php
+     }
+     
 }
 
 ?>
@@ -49,12 +57,12 @@ if (isset($_POST['submit'])){
         <form action="" method="post" id="change_form">
         <p>名前：<input type="text" name ="name" value="<?= $_SESSION['name']?>" required><br/></p>
         <p>メールアドレス：<input type="email" name ="mail" value="<?= $_SESSION['email']?>" required><br/></p>
-        <p>新規パスワード：<input type="password" pattern="^[0-9A-Za-z]{8,16}$" name ="password" value="" placeholder="8桁以上16桁未満"  required><br/></p>
+        <p>新規パスワード：<input type="password" pattern="^[0-9A-Za-z]{8,16}$" name ="password" value="" placeholder="半角英数字8桁以上16桁以下"  required><br/></p>
         <p>確認パスワード：<input type="password" pattern="^[0-9A-Za-z]{8,16}$" name ="con_password" value="" placeholder="上記と同じパスワード"  required><br/></p>
         <p>生年月日：<input type="date" name ="birthday" value="<?= $_SESSION['birthday']?>" required><br/></p>
-        <p>身長：<input type="number"  step="0.1" name ="height" value="<?= $_SESSION['height']?>">&nbsp;&nbsp;cm<br/></p>  <!-- numberだけど値の型はstring-->
-        <p>体重：<input type="number" name ="weight" value="<?= $_SESSION['weight']?>">&nbsp;&nbsp;kg<br/></p>
-        <p>目標体重：<input type="number" name ="target_weight" value="<?= $_SESSION['target_weight']?>">&nbsp;&nbsp;kg<br/></p>
+        <p>身長：<input type="number"  step="0.1" name ="height" value="<?= $_SESSION['height']?>" placeholder="登録しない場合は0を入力">&nbsp;&nbsp;cm<br/></p>  <!-- numberだけど値の型はstring-->
+        <p>体重：<input type="number" name ="weight" value="<?= $_SESSION['weight']?>" placeholder="登録しない場合は0を入力">&nbsp;&nbsp;kg<br/></p>
+        <p>目標体重：<input type="number" name ="target_weight" value="<?= $_SESSION['target_weight']?>" placeholder="登録しない場合は0を入力">&nbsp;&nbsp;kg<br/></p>
         <input id="link_button" type="submit" name ="submit" value="変更する" onclick="return userInf_change()" >
         </form>
         </div>
@@ -67,20 +75,21 @@ if (isset($_POST['submit'])){
     $("meta[name='twitter:site']").attr('content','登録情報変更');
 
     function userInf_change(){
+        var weight = document.getElementsByName('weight')[0];
+        var height = document.getElementsByName('height')[0];
         var new_pass = document.getElementsByName('password')[0];
         var con_pass = document.getElementsByName('con_password')[0];
         var form = document.getElementById('change_form');
-        if (new_pass.value == '' || con_pass.value == ''){
-            alert("パスワードを入力してください");
-            return false;
-        }
-        if (new_pass.value == con_pass.value){
-            alert("変更しました");
-        }
-        else{
+
+  
+        if (new_pass.value !== con_pass.value){
             alert("パスワードが間違っています");
             new_pass.value = '';
             con_pass.value = '';
+            return false;
+        }
+        if(weight.value== '' || height.value== '' || target_weight.value== ''){
+            alert('正しく入力してください');
             return false;
         }
     }
