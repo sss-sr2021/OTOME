@@ -76,20 +76,21 @@ if (isset($_POST['submit'])){
     $("meta[name='twitter:site']").attr('content','新規登録');
 
     function userInf_change(){
+        var weight = document.getElementsByName('weight')[0];
+        var height = document.getElementsByName('height')[0];
         var new_pass = document.getElementsByName('password')[0];
         var con_pass = document.getElementsByName('con_password')[0];
         var form = document.getElementById('change_form');
-        if (new_pass.value == '' || con_pass.value == ''){
-            alert("パスワードを入力してください");
-            return false;
-        }
-        if (new_pass.value == con_pass.value){
-            alert("変更しました");
-        }
-        else{
+
+  
+        if (new_pass.value !== con_pass.value){
             alert("パスワードが間違っています");
             new_pass.value = '';
             con_pass.value = '';
+            return false;
+        }
+        if(weight.value== '' || height.value== '' || target_weight.value== ''){
+            alert('正しく入力してください');
             return false;
         }
     }
