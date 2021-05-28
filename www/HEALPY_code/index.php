@@ -23,14 +23,19 @@ if(!isset($_SESSION['logined'])){?>
 
 <?php }
 
-if(@$points[date('Y-m-d')]<=0){
-    $comment='お疲れではありませんか？ゆっくりお休みください';
-}elseif(@$points[date('Y-m-d')]<=5){
-    $comment='少しお疲れですか？生活リズムを見直しましょう';
-}elseif(@$points[date('Y-m-d')]<=11){
-    $comment='順調ですね！この調子でポイントアップを目指しましょう';
-}else{
-    $comment='絶好調ですね！このままキープしましょう！';
+if(isset($points[date('Y-m-d')])){
+    if(@$points[date('Y-m-d')]<=1){
+        $comment='お疲れではありませんか？ゆっくりお休みください';
+    }elseif(@$points[date('Y-m-d')]<=5){
+        $comment='少しお疲れですか？生活リズムを見直しましょう';
+    }elseif( @$points[date('Y-m-d')]<=11){
+        $comment='順調ですね！この調子でポイントアップを目指しましょう';
+    }elseif(@$points[date('Y-m-d')]<=14){
+        $comment='絶好調ですね！このままキープしましょう！';
+    }
+    else{
+        $comment='';
+    }
 }
 
 $time = date('G');
