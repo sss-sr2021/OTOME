@@ -66,7 +66,7 @@ if(isset($points[date('Y-m-d')])){
     <p id="text"><span style="font-weight: bold"><?=$_SESSION['name']?></span>さん<?=$aisatsu?></p>
         <p><?=@$tensuu?></p>
         <p><?=@$_SESSION['getPoint'][0]['point']?></p>
-        <p><?=$comment?></p>
+        <p><?=@$comment?></p>
     </div>
     <!-- ↓以下グラフを表示↓ -->
     <!-- グラフ作成ライブラリ -->
