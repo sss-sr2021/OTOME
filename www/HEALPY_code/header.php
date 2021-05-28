@@ -15,6 +15,8 @@ require_once 'function.php';
 <head>
     <meta charset="UTF-8">
     <title id="title"></title>
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style_pc.css" media="screen and (min-width:1024px)"> <!--画面サイズ1024px以上はこのファイルはスタイルが適用される -->
     <link rel="stylesheet" href="css/style_sp.css" media="screen and (max-width:1024px)"> <!--画面サイズ1024px以下はこのファイルはスタイルが適用される -->
