@@ -59,9 +59,9 @@ if (isset($_POST['submit'])){
         <p>パスワード：<input type="password" pattern="^[0-9A-Za-z]{8,16}$" name ="password" value="" placeholder="半角英数字8桁以上16桁以下"required><br/></p>
         <p>確認パスワード：<input type="password" pattern="^[0-9A-Za-z]{8,16}$" name ="con_password" value="" placeholder="上記と同じパスワード"  required><br/></p>
         <p>生年月日：<input type="date" name ="birthday" value="" required><br/></p>
-        <p>身長：<input type="number"  step="0.1" name ="height" value="0" placeholder="登録しない場合は0を入力">&nbsp;&nbsp;cm<br/></p>  <!-- numberだけど値の型はstring-->
-        <p>体重：<input type="number" name ="weight" value="0" placeholder="登録しない場合は0を入力">&nbsp;&nbsp;kg<br/></p>
-        <p>目標体重：<input type="number" name ="target_weight" value="0" placeholder="登録しない場合は0を入力">&nbsp;&nbsp;kg<br/></p>
+        <p>身長：<input type="number"  step="0.1" name ="height" value="" placeholder="登録しない場合は0を入力">&nbsp;&nbsp;cm<br/></p>  <!-- numberだけど値の型はstring-->
+        <p>体重：<input type="number" name ="weight" value="" placeholder="登録しない場合は0を入力">&nbsp;&nbsp;kg<br/></p>
+        <p>目標体重：<input type="number" name ="target_weight" value="" placeholder="登録しない場合は0を入力">&nbsp;&nbsp;kg<br/></p>
         <input id="link_button" type="submit" name ="submit" value="登録"  onclick="return userInf_change()">
         </form>
     </main>
